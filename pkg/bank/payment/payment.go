@@ -14,21 +14,3 @@ func Max(payments []types.Payment) types.Payment {
 	}
 	return payments[k]
 }
-
-//PaymentSource реализует слай источников оплаты
-func PaymentSources(cards []types.Card) []types.PaymentSource {
-	var slicePaymentSource []types.PaymentSource
-	for _, card := range cards {
-		if card.Balance <= 0 || !card.Active {
-			continue
-		} else {
-			spSource := types.PaymentSource{
-				Type:    card.Name,
-				Number:  string(card.PAN),
-				Balance: card.Balance,
-			}
-			slicePaymentSource = append(slicePaymentSource, spSource)
-		}
-	}
-	return slicePaymentSource
-}

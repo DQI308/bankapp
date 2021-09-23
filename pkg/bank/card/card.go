@@ -57,15 +57,32 @@ func AddBonus(card *types.Card, percent int, dayslnMonth int, dayslnYear int) {
 	(*card).Balance += types.Money(bonus)
 }
 
-
 //Функция суммирования денег на всех картах
-func Total(cards []types.Card)types.Money{
-	sum:=types.Money(0)
+func Total(cards []types.Card) types.Money {
+	sum := types.Money(0)
 	var card types.Card
-	for _,card=range cards{
-		if card.Balance>=0 && card.Active{
-			sum+=card.Balance
+	for _, card = range cards {
+		if card.Balance >= 0 && card.Active {
+			sum += card.Balance
 		}
 	}
 	return sum
+}
+
+//PaymentSource реализует слай источников оплаты
+func PaymentSources(cards []types.Card) []types.PaymentSource {
+	var slicePaymentSource []types.PaymentSource
+	for _, card := range cards {
+		if card.Balance <= 0 || !card.Active {
+			continue
+		} else {
+			spSource := types.PaymentSource{
+				Type:    card.Name,
+				Number:  string(card.PAN),
+				Balance: card.Balance,
+			}
+			slicePaymentSource = append(slicePaymentSource, spSource)
+		}
+	}
+	return slicePaymentSource
 }
