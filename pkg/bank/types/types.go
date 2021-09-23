@@ -1,6 +1,8 @@
 package types
 
-//Money представляет собой денежную сумму 
+import "github.com/DQI308/bank/v2/pkg/types"
+
+//Money представляет собой денежную сумму
 type Money int64
 
 //Currency представляет код валюты
@@ -34,4 +36,11 @@ type Card struct{
 type Payment struct{
 	ID int
 	Amount Money
+}
+
+//PaymentSource реализует слай источников оплаты
+type PaymentSource struct{
+	Type string
+	Number string
+	Balance types.Money
 }
