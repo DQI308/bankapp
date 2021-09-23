@@ -1,6 +1,5 @@
 package types
 
-import "github.com/DQI308/bank/v2/pkg/types"
 
 //Money представляет собой денежную сумму
 type Money int64
@@ -42,5 +41,5 @@ type Payment struct{
 type PaymentSource struct{
 	Type string
 	Number string
-	Balance types.Money
+	Balance Money
 }
