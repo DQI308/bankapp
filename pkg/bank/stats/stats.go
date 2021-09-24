@@ -2,7 +2,7 @@ package stats
 
 import "bank/pkg/bank/types"
 
-//Avg расчитывает средную суммуплатежа.
+//Avg расчитывает средную сумму платежа.
 func Avg(payments []types.Payment)types.Money{
 	sum:=types.Money(0)
 	cnt:=types.Money(0)
