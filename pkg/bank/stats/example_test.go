@@ -18,6 +18,6 @@ func ExampleAvg() {
 	result:=Avg(payments)
 	fmt.Println(result)
 	//Output:
-	//20000
+	//10000
 
 }
