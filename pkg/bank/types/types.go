@@ -1,6 +1,5 @@
 package stats
 
-
 type Money int64
 
 type Category string
