@@ -1,9 +1,6 @@
 package stats
 
-import (
-	"go/types"
-	"github.com/DQI308/bank/pkg/bank/types"
-)
+import "github.com/DQI308/bank/pkg/bank/types"
 
 //Avg рассчитывает средную сумму платежа
 func Avg(payments []types.Payment)types.Money{
